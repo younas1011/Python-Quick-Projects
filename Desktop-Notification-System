@@ -1,0 +1,14 @@
+from plyer import notification
+import time
+
+icon_path = r"F:\PyCharm\PyCharm Projects\Desktop Notification System\clock.png"
+
+if __name__ == '__main__':
+    while True:
+        notification.notify(
+            title="*** Take Rest """,
+            message="""Taking breaks during work is crucial for physical and mental well-being.
+                       Regular rests""",
+            app_icon=icon_path,
+            timeout=5)  # Timeout specifies how long the notification will remain on the screen.
+        time.sleep(60 * 60)  # time.sleep indicates the duration after which the notification will reappear.
