@@ -1,0 +1,14 @@
+import smtplib as sp
+
+obj = sp.SMTP('smtp.gmail.com', 587)
+obj.ehlo()
+obj.starttls()
+obj.login('younasalishah7@gmail.com', '******')
+subject = "Here we can write our subjection like [Request for Leave] etc"
+body = "Its the body where we can write our detailed message"
+massage = "subject:{}\n\n{}".format(subject, body)
+list_add = ['younasshah343@gmail.com',
+            'younasalishah8@gmail.com']
+obj.sendmail('younasalishah7@gmail.com',list_add,massage)
+print("Your Mail send Successful")
+obj.quit()
