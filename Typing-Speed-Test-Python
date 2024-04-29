@@ -1,0 +1,52 @@
+from time import *
+import random as rm
+
+
+def mistake(paragraph, userinput):
+    error = 0
+    for i in range(len(paragraph)):
+        try:
+            if paragraph[i] != userinput[i]:
+                error = error + 1
+        except:
+            error = error + 1
+    return error
+
+
+def speed_time(time_start, time_end, user_input):
+    time_delay = time_end - time_start
+    time_round = round(time_delay, 2)
+    speed = len(user_input) / time_round
+    return round(speed)
+
+
+while True:
+
+    test_paragraphs = ["The quick brown fox jumps over the lazy dog",
+
+                       """Some people combine touch typing and hunt and peck by using a buffering method.
+                        In the buffer method the typist looks at the source copy
+                        mentally stores one or several sentences then looks at the keyboard
+                        and types out the buffer of sentences.""",
+
+                       "This eliminates frequent up and down motions with the head and is used in typing",
+                       ]
+    test1 = rm.choice(test_paragraphs)
+    print("        ++++ Typing Speed ++++")
+    print(test1, "\n\n")
+    time_1 = time()
+    test_input = input("Enter : ")
+    time_2 = time()
+
+    print(' Speed : ', speed_time(time_1, time_2, test_input), " w/sec")
+    print(" Error : ", mistake(test1, test_input))
+
+    ck = input("Are you want to do again : yes / no : ")
+    if ck == "yes":
+        continue
+    elif ck == "no":
+        print("Thanks You")
+        break
+    else:
+        print("Wrong input")
+        break
