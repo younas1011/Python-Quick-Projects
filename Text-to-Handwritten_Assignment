@@ -1,0 +1,8 @@
+import pywhatkit as pw
+
+text = """Data compression attempts to remove unwanted redundancy from the data from a source in order to transmit it more
+          efficiently. For example, ZIP data compression makes data files smaller, for purposes such as to reduce Internet traffic. Data compression
+          and error correction may be studied in combination"""
+
+pw.text_to_handwriting(text, "assignment_1.png", [0,128,255])
+print("Your assignment has been saved successfully.")
