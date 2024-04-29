@@ -1,0 +1,45 @@
+import random
+
+count = 0
+com_count = 0
+
+while True:
+    user_choice = input("Enter rock, paper, or scissor (user choice): ").lower()
+    choices = ["rock", "paper", "scissor"]
+    computer_choice = random.choice(choices)
+
+    print("Computer choice is:", computer_choice)
+
+    if user_choice == computer_choice:
+        print("Game is tie")
+        count += 1
+        print("Tie Score Added to Both User and Computer")
+
+    elif (user_choice == "rock" and computer_choice == "scissor"
+          or user_choice == "paper" and computer_choice == "rock"
+          or user_choice == "scissor" and computer_choice == "paper"):
+        print("The user wins!")
+        count += 1
+        print("User Score =", count)
+
+    elif (computer_choice == "rock" and user_choice == "scissor"
+          or computer_choice == "paper" and user_choice == "rock"
+          or computer_choice == "scissor" and user_choice == "paper"):
+        print("The computer wins! Best luck")
+        com_count += 1
+        print("Computer Score =", com_count)
+
+    else:
+        print("Incorrect input")
+
+    if count == 20 or com_count == 20:
+        print("Game Ended")
+        break
+
+    if count > com_count:
+        print("User is the Winner!!!")
+    elif com_count > count:
+        print("Computer is the Winner!!!")
+    elif count == com_count:
+        print("Game Draw")
+        break
