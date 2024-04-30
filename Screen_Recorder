@@ -1,0 +1,30 @@
+import cv2
+import pyautogui
+from win32api import GetSystemMetrics
+import numpy as np
+import time
+
+width = GetSystemMetrics(0)
+height = GetSystemMetrics(1)
+dim = (width, height)
+
+fourcc = cv2.VideoWriter.fourcc(*'H264')
+output = cv2.VideoWriter("screen_recording.mp4", fourcc, 30.0, dim)
+
+duration = 10
+end_time = time.time() + duration
+
+while time.time() < end_time:
+    try:
+        image = pyautogui.screenshot()
+        frame_np = np.array(image)
+        frame_rgb = cv2.cvtColor(frame_np, cv2.COLOR_BGR2RGB)
+        output.write(frame_rgb)
+
+    except KeyboardInterrupt:
+        break
+    except Exception as e:
+        print("Error:", e)
+
+output.release()
+print("Your video has been saved successfully.")
