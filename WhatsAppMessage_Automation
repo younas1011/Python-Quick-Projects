@@ -1,0 +1,3 @@
+import pywhatkit as pw
+
+pw.sendwhatmsg('+923439133949', 'Hi, how are you?', 15, 28)  # The parameters are: phone number, message, hour to send, and seconds
