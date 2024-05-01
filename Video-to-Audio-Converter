@@ -1,0 +1,12 @@
+from moviepy.editor import VideoFileClip
+from tkinter.filedialog import askopenfilename
+
+vid = askopenfilename()
+
+video = VideoFileClip(vid)
+
+aud = video.audio
+
+aud.write_audiofile("Demo.mp3")
+
+print("Video Converted to Audio Successfully")
